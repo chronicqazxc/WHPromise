@@ -101,13 +101,13 @@ public final class Promise<T> {
     /// - Parameter rejected: Failed handler.
     @discardableResult
     public func then(_ fulfilled: @escaping Fulfill,
-              _ rejected: @escaping  Reject = { _ in }) -> Promise<T> {
+                     _ rejected: @escaping  Reject = { _ in }) -> Promise<T> {
         let promise = Promise<T>.init { (fulfill, reject) in
             self.addSubscriber({ (value) in
                 fulfill(value)
             }, reject)
         }
-        promise.addSubscriber(fulfill, reject)
+        promise.addSubscriber(fulfilled, rejected)
         return promise
     }
     
@@ -116,13 +116,13 @@ public final class Promise<T> {
     /// - Parameter rejected: Failed handler.
     @discardableResult
     public func then<NewValue>(_ fulfilled: @escaping (T)->NewValue,
-    _ rejected: @escaping  Reject = { _ in }) -> Promise<NewValue> {
+                               _ rejected: @escaping  Reject = { _ in }) -> Promise<NewValue> {
         let promise = Promise<NewValue>.init { (_fulfill, _reject) in
             
             self.addSubscriber({ (value) in
                 _fulfill(fulfilled(value))
             }) { (error) in
-                rejected(error)
+                _reject(error)
             }
         }
         
@@ -134,7 +134,7 @@ public final class Promise<T> {
     /// - Parameter rejected: Failed handler.
     @discardableResult
     public func then<NewValue>(_ fulfilled: @escaping (T,@escaping (NewValue)->Void)->Void,
-    _ rejected: @escaping  Reject = { _ in }) -> Promise<NewValue> {
+                               _ rejected: @escaping  Reject = { _ in }) -> Promise<NewValue> {
         let promise = Promise<NewValue>.init { (_fulfill, _reject) in
             
             self.addSubscriber({ (value) in
@@ -142,7 +142,7 @@ public final class Promise<T> {
                     _fulfill(newValue)
                 }
             }) { (error) in
-                rejected(error)
+                _reject(error)
             }
         }
         
