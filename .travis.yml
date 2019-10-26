@@ -25,4 +25,4 @@ before_script:
 #  - carthage update --cache-builds --platform ios
 script:
   - bundle exec fastlane scan -s WHPromise
-  - swiftlint
+#  - swiftlint
