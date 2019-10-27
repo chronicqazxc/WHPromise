@@ -18,20 +18,15 @@ class WHPromiseTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func promisedString(_ str: String) -> Promise<String> {
-        return Promise<String>(execute: { fulfill, reject in
-            print("sleeping…")
-            sleep(1)
-            print("done sleeping")
-            fulfill(str)
-        })
-    }
     
     func testInitWithCallBack() {
         let ex = expectation(description: "")
         let testValue = "testInitWithCallBack"
-        let promise = promisedString(testValue)
+        let promise = Promise<String> { (fulfill, reject) in
+            DispatchQueue.global().async {
+                fulfill(testValue)
+            }
+        }
         promise.then({ result in
             ex.fulfill()
             XCTAssertEqual(result, testValue)
@@ -72,24 +67,32 @@ class WHPromiseTests: XCTestCase {
 
     func testTransferPromise() {
         let ex = expectation(description: "")
-        let promise = promisedString("test")
-        var result = ""
-        let expectation = "Result: 246"
-        promise.then({ (value) -> Int in
-            123
-        }).then({ (result) in
-            result + 123
-        }).then({ (result, complete) -> Void in
-            DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
-                complete("Result: \(result)")
+        let promise = Promise<String> { (fulfill, reject) in
+            DispatchQueue.global().async {
+                fulfill("foobar")
             }
-        }).then({
-            result = $0
+        }
+        let string = """
+                        {"name": "Banana",
+                           "points": 200,
+                           "description": "A banana grown in Ecuador."
+                        }
+                    """
+        promise.then({ (result, complete: @escaping (GroceryProduct)->Void) in
+            let json = string.data(using: .utf8)
+            let decoder = JSONDecoder()
+            let products = try decoder.decode(GroceryProduct.self, from: json!)
+            DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
+                complete(products)
+            }
+        }).then { (product) in
             ex.fulfill()
-        })
+            XCTAssertEqual(product.name, "Banana")
+        }.catch { (error) in
+            print(error)
+        }
 
         wait(for: [ex], timeout: 10)
-        XCTAssertEqual(result, expectation)
     }
     
     func testCatchInSynchronous() {
@@ -153,10 +156,4 @@ class WHPromiseTests: XCTestCase {
         
         wait(for: [ex], timeout: 10)
     }
-}
-
-struct GroceryProduct: Codable {
-    var name: String
-    var points: Int
-    var description: String?
 }
