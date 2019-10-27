@@ -74,11 +74,11 @@ class WHPromiseTests: XCTestCase {
         let ex = expectation(description: "")
         let promise = promisedString("test")
         var result = ""
-        let expectation = "Result: 123"
+        let expectation = "Result: 246"
         promise.then({ (value) -> Int in
             123
         }).then({ (result) in
-
+            result + 123
         }).then({ (result, complete) -> Void in
             DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
                 complete("Result: \(result)")
@@ -87,8 +87,76 @@ class WHPromiseTests: XCTestCase {
             result = $0
             ex.fulfill()
         })
-        
+
         wait(for: [ex], timeout: 10)
         XCTAssertEqual(result, expectation)
     }
+    
+    func testCatchInSynchronous() {
+        let ex = expectation(description: "")
+
+        let promise = Promise<String>.init { (fulfill, _) in
+            fulfill("hello")
+        }
+        
+        promise.then { (result) -> Promise<Int> in
+            XCTAssertEqual(result, "hello")
+            throw MockError.responseError
+        }.catch { (error) in
+            if let mockError = error as? MockError {
+                XCTAssertEqual(MockError.responseError.hashValue, mockError.hashValue)
+                ex.fulfill()
+            } else {
+                XCTFail("testInitWithError")
+            }
+        }
+        
+        wait(for: [ex], timeout: 10)
+    }
+    
+    func apiCall() throws -> Int {
+        do {
+            throw MockError.bodyError
+        } catch {
+            throw MockError.bodyError
+        }
+    }
+    
+    func testCatchInAsynchronous() {
+        let ex = expectation(description: "")
+
+        let promise = Promise<String>.init { (fulfill, _) in
+            fulfill("hello")
+        }
+        
+        promise.then { (result) -> [GroceryProduct] in
+            let decoder = JSONDecoder()
+            
+            let string = """
+                {"name": "Banana",
+                    "points": 200,
+                    "description": "A banana grown in Ecuador."},
+                {"name", "Orange"}
+            """
+            let json = string.data(using: .utf8)
+            let products = try decoder.decode([GroceryProduct].self, from: json!)
+            return products
+        }.then({ (result) in
+            result.first
+        }).catch { (error) in
+            if let _ = error as? DecodingError {
+                ex.fulfill()
+            } else {
+                XCTFail()
+            }
+        }
+        
+        wait(for: [ex], timeout: 10)
+    }
+}
+
+struct GroceryProduct: Codable {
+    var name: String
+    var points: Int
+    var description: String?
 }
