@@ -34,9 +34,13 @@ public final class Promise<T> {
     /// Initialize with execution.
     /// - Parameter body: Execution which either call fulfill function or reject funtion when execution completed.
     public init(execute: @escaping (_ fulfill: @escaping Fulfill,
-        _ reject: @escaping  Reject) -> Void) {
+        _ reject: @escaping  Reject) throws -> Void) {
         DispatchQueue.global().async {
-            execute(self.fulfill, self.reject)
+            do {
+                try execute(self.fulfill, self.reject)
+            } catch {
+                self.reject(error)
+            }
         }
     }
     
@@ -115,12 +119,40 @@ public final class Promise<T> {
     /// - Parameter fulfilled: Success handler, value returned directly.
     /// - Parameter rejected: Failed handler.
     @discardableResult
-    public func then<NewValue>(_ fulfilled: @escaping (T)->NewValue,
+    public func then<NewValue>(_ fulfilled: @escaping (T) throws -> NewValue) -> Promise<NewValue> {
+            let promise = Promise<NewValue>.init { (_fulfill, _reject) in
+                
+                self.addSubscriber({ (value) in
+                    do {
+                        try _fulfill(fulfilled(value))
+                    } catch {
+                        _reject(error)
+                    }
+                }) { (error) in
+                    _reject(error)
+                }
+            }
+            
+            return promise
+    }
+    
+    /// Get the result, value if successed, error if rejected. Return new promise instance with the generic type as same as type of value returned in success handler.
+    /// - Parameter fulfilled: Success handler, value provided in closure.
+    /// - Parameter rejected: Failed handler.
+    @discardableResult
+    public func then<NewValue>(_ fulfilled: @escaping (T,@escaping (NewValue)->Void) throws ->Void,
                                _ rejected: @escaping  Reject = { _ in }) -> Promise<NewValue> {
         let promise = Promise<NewValue>.init { (_fulfill, _reject) in
             
             self.addSubscriber({ (value) in
-                _fulfill(fulfilled(value))
+                do {
+                    try fulfilled(value) { (newValue) in
+                        _fulfill(newValue)
+                    }
+                } catch {
+                    _reject(error)
+                }
+                
             }) { (error) in
                 _reject(error)
             }
@@ -129,24 +161,12 @@ public final class Promise<T> {
         return promise
     }
     
-    /// Get the result, value if successed, error if rejected. Return new promise instance with the generic type as same as type of value returned in success handler.
-    /// - Parameter fulfilled: Success handler, value provided in closure.
-    /// - Parameter rejected: Failed handler.
+    
+    /// Catch any failure or exeception during the chain.
+    /// - Parameter rejected: Reject closure with specific error.
     @discardableResult
-    public func then<NewValue>(_ fulfilled: @escaping (T,@escaping (NewValue)->Void)->Void,
-                               _ rejected: @escaping  Reject = { _ in }) -> Promise<NewValue> {
-        let promise = Promise<NewValue>.init { (_fulfill, _reject) in
-            
-            self.addSubscriber({ (value) in
-                fulfilled(value) { (newValue) in
-                    _fulfill(newValue)
-                }
-            }) { (error) in
-                _reject(error)
-            }
-        }
-        
-        return promise
+    public func `catch`(_ rejected: @escaping (Error) -> Void) -> Promise<T> {
+        return then({ _ in }, rejected)
     }
     
     func addSubscriber(_ fulfill: @escaping Fulfill,
