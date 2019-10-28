@@ -53,7 +53,7 @@ class WHPromiseTests: XCTestCase {
         let promise = Promise<String>(error: MockError.responseError)
         promise.then({ (result) in
             
-        }) { (error) in
+        }).catch { (error) in
             ex.fulfill()
             if let mockError = error as? MockError {
                 XCTAssertEqual(MockError.responseError.hashValue, mockError.hashValue)
