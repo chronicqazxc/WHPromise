@@ -2,12 +2,8 @@
 [![CI Status](https://travis-ci.org/chronicqazxc/WHPromise.svg?branch=master)](https://github.com/chronicqazxc/WHPromise)
 [![License](https://img.shields.io/github/license/chronicqazxc/WHPromise)](https://github.com/chronicqazxc/WHPromise)
 [![Platform](https://img.shields.io/badge/iOS-Carthage-blue)](https://github.com/chronicqazxc/WHPromise)
-Light weight Promise (Future) framework in iOS.
 
-## A light weight Promise framework for iOS development.
-
-## Sequence diagram.
-![sequence](./sequence.png)
+## Light weight Promise (Future) framework in iOS.
 
 ## How to use.
 Crate a promise instance with async task.
@@ -61,6 +57,9 @@ promise.then({ (result, complete: @escaping (GroceryProduct)->Void) in
     }
 })
 ```
+
+## Sequence diagram.
+![sequence](./sequence.png)
 
 ## Author:
 [Wayne Hsiao](mailto:chronicqazxc@gmail.com)
