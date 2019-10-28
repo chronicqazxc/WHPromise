@@ -140,14 +140,19 @@ public final class Promise<T> {
     /// - Parameter fulfilled: Success handler, value provided in closure.
     /// - Parameter rejected: Failed handler.
     @discardableResult
-    public func then<NewValue>(_ fulfilled: @escaping (T,@escaping (NewValue)->Void)->Void,
+    public func then<NewValue>(_ fulfilled: @escaping (T,@escaping (NewValue)->Void) throws ->Void,
                                _ rejected: @escaping  Reject = { _ in }) -> Promise<NewValue> {
         let promise = Promise<NewValue>.init { (_fulfill, _reject) in
             
             self.addSubscriber({ (value) in
-                fulfilled(value) { (newValue) in
-                    _fulfill(newValue)
+                do {
+                    try fulfilled(value) { (newValue) in
+                        _fulfill(newValue)
+                    }
+                } catch {
+                    _reject(error)
                 }
+                
             }) { (error) in
                 _reject(error)
             }
