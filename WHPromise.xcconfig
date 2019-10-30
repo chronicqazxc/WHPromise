@@ -1,0 +1,13 @@
+//
+//  WHPromise.xcconfig
+//  WHPromise
+//
+//  Created by Hsiao, Wayne on 2019/10/30.
+//  Copyright © 2019 Hsiao, Wayne. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+SDKROOT = macosx
+SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator

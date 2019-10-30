@@ -27,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		A6B88E202365D8990004495F /* GroceryProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryProduct.swift; sourceTree = "<group>"; };
+		A6B88E25236966CB0004495F /* WHPromise.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = WHPromise.xcconfig; sourceTree = "<group>"; };
 		A6F50C7023642C0D0043ECA1 /* WHPromise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WHPromise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F50C7323642C0D0043ECA1 /* WHPromise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHPromise.h; sourceTree = "<group>"; };
 		A6F50C7423642C0D0043ECA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		A6F50C6623642C0D0043ECA1 = {
 			isa = PBXGroup;
 			children = (
+				A6B88E25236966CB0004495F /* WHPromise.xcconfig */,
 				A6F50C8E2364635D0043ECA1 /* README.md */,
 				A6F50C912364687E0043ECA1 /* Gemfile */,
 				A6F50C902364661E0043ECA1 /* .travis.yml */,
@@ -240,6 +242,7 @@
 /* Begin XCBuildConfiguration section */
 		A6F50C8223642C0D0043ECA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6B88E25236966CB0004495F /* WHPromise.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -289,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -303,6 +306,7 @@
 		};
 		A6F50C8323642C0D0043ECA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6B88E25236966CB0004495F /* WHPromise.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -346,7 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -360,6 +364,7 @@
 		};
 		A6F50C8523642C0D0043ECA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6B88E25236966CB0004495F /* WHPromise.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -376,6 +381,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wayne.hsiao.WHPromise;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -387,6 +393,7 @@
 		};
 		A6F50C8623642C0D0043ECA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6B88E25236966CB0004495F /* WHPromise.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -403,6 +410,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wayne.hsiao.WHPromise;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -413,6 +421,7 @@
 		};
 		A6F50C8823642C0D0043ECA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6B88E25236966CB0004495F /* WHPromise.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -432,6 +441,7 @@
 		};
 		A6F50C8923642C0D0043ECA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6B88E25236966CB0004495F /* WHPromise.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
