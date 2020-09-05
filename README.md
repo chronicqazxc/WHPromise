@@ -46,7 +46,9 @@
 ```
 ### Case 3. Get product from orderId
 ```swift
-let product = getProductFromOrder(orderId: "12345")
+func testGetProduct() {
+        let ex = expectation(description: "")
+        let product = getProductFromOrder(orderId: "12345")
         product.then { product in
             ex.fulfill()
             XCTAssertEqual(product.name, "Banana")
@@ -54,6 +56,9 @@ let product = getProductFromOrder(orderId: "12345")
         }.catch { error in
             XCTAssertFalse(false, error.localizedDescription)
         }
+        
+        wait(for: [ex], timeout: 10)
+    }
 ```
 
 ## Sequence diagram.
