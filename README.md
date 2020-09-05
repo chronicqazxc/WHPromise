@@ -6,56 +6,54 @@
 ## Light weight Promise (Future) framework in iOS.
 
 ## How to use.
-Crate a promise instance with async task.
+### Case 1. JSON Parser promise
 ```swift
-func loginBy(credential: Credential) -> Promise<Profile> {
-    let promise = Promise<Profile> { (fulfill, reject) in
-        Service.shared.getProfileBy(credential: credential) {
-            if success {
-                fulfill(profile)
-            } else {
+    func jsonParser<Type: Codable>(data: Data) -> Promise<Type> {
+        let promise = Promise<Type> { (fulfill, reject) in
+            do {
+                let decoder = JSONDecoder()
+                let products = try decoder.decode(Type.self, from: data)
+                fulfill(products)
+            } catch {
                 reject(error)
             }
         }
+        return promise
     }
-    return promise
-}
-
-promise.then({ profile in
-// Process with profile.
-}).catch({ (error)
-// Error handling.
-})
 ```
-Crate a promise instance with a value.
+### Case 2. Get product type from order id
 ```swift
-let promise = Promise<Int>(value: someInt)
-promise.then({ result in
-// Process the int value.
-}).catch({ (error)
-// Error handling.
-})
-```
-Crate an error promise instance. 
-```swift
-let promise = Promise<Int>(error: someError)
-promise.then({ result in
-// Process the int value.
-}).catch({ (error)
-// Error handling.
-})
-```
-Then with async task. 
-```swift
-let promise = Promise<Int>(value: someInt)
-promise.then({ (result, complete: @escaping (GroceryProduct)->Void) in
-    let json = string.data(using: .utf8)
-    let decoder = JSONDecoder()
-    let products = try decoder.decode(GroceryProduct.self, from: json!)
-    asyncTask {
-        complete(products)
+    func getProductFromOrder(orderId: String) -> Promise<GroceryProduct> {
+        let promise = Promise<GroceryProduct> { (fulfill, reject) in
+            DispatchQueue.global().async {
+                let string = """
+                    {"name": "Banana",
+                       "points": 200,
+                       "description": "A banana grown in Ecuador."
+                    }
+                """
+                let jsonData = string.data(using: .utf8)
+                let jsonPromise = self.jsonParser(data: jsonData!) as Promise<GroceryProduct>
+                jsonPromise.then { product in
+                    fulfill(product)
+                }.catch { error in
+                    reject(error)
+                }
+            }
+        }
+        return promise
     }
-})
+```
+### Case 3. Get product from orderId
+```swift
+let product = getProductFromOrder(orderId: "12345")
+        product.then { product in
+            ex.fulfill()
+            XCTAssertEqual(product.name, "Banana")
+            XCTAssertEqual(product.orderId, "12345")
+        }.catch { error in
+            XCTAssertFalse(false, error.localizedDescription)
+        }
 ```
 
 ## Sequence diagram.
