@@ -12,4 +12,5 @@ struct GroceryProduct: Codable {
     var name: String
     var points: Int
     var description: String?
+    var orderId: String
 }

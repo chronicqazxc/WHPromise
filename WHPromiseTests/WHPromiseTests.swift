@@ -64,6 +64,55 @@ class WHPromiseTests: XCTestCase {
         
         wait(for: [ex], timeout: 10)
     }
+    
+    func jsonParser<Type: Codable>(data: Data) -> Promise<Type> {
+        let promise = Promise<Type> { (fulfill, reject) in
+            do {
+                let decoder = JSONDecoder()
+                let products = try decoder.decode(Type.self, from: data)
+                fulfill(products)
+            } catch {
+                reject(error)
+            }
+        }
+        return promise
+    }
+    
+    func getProductFromOrder(orderId: String) -> Promise<GroceryProduct> {
+        let promise = Promise<GroceryProduct> { (fulfill, reject) in
+            DispatchQueue.global().async {
+                let string = """
+                    {"name": "Banana",
+                       "points": 200,
+                       "description": "A banana grown in Ecuador.",
+                       "orderId": "\(orderId)"
+                    }
+                """
+                let jsonData = string.data(using: .utf8)
+                let jsonPromise = self.jsonParser(data: jsonData!) as Promise<GroceryProduct>
+                jsonPromise.then { product in
+                    fulfill(product)
+                }.catch { error in
+                    reject(error)
+                }
+            }
+        }
+        return promise
+    }
+    
+    func testGetProduct() {
+        let ex = expectation(description: "")
+        let product = getProductFromOrder(orderId: "12345")
+        product.then { product in
+            ex.fulfill()
+            XCTAssertEqual(product.name, "Banana")
+            XCTAssertEqual(product.orderId, "12345")
+        }.catch { error in
+            XCTAssertFalse(false, error.localizedDescription)
+        }
+        
+        wait(for: [ex], timeout: 10)
+    }
 
     func testTransferPromise() {
         let ex = expectation(description: "")
@@ -75,7 +124,8 @@ class WHPromiseTests: XCTestCase {
         let string = """
                         {"name": "Banana",
                            "points": 200,
-                           "description": "A banana grown in Ecuador."
+                           "description": "A banana grown in Ecuador.",
+                           "orderId": "123"
                         }
                     """
         promise.then({ (result, complete: @escaping (GroceryProduct)->Void) in
