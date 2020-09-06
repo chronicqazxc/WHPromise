@@ -41,6 +41,8 @@
 		A6F50C902364661E0043ECA1 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		A6F50C912364687E0043ECA1 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		BE6A094925047C9600BA90F7 /* usecase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usecase.png; sourceTree = "<group>"; };
+		BE6A094B2504B7CA00BA90F7 /* Appfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Appfile; sourceTree = "<group>"; };
+		BE6A094C2504B7CA00BA90F7 /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Fastfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 		A6F50C6623642C0D0043ECA1 = {
 			isa = PBXGroup;
 			children = (
+				BE6A094A2504B7CA00BA90F7 /* fastlane */,
 				A6B88E25236966CB0004495F /* WHPromise.xcconfig */,
 				A6F50C8E2364635D0043ECA1 /* README.md */,
 				A6F50C912364687E0043ECA1 /* Gemfile */,
@@ -113,6 +116,15 @@
 				BE6A094925047C9600BA90F7 /* usecase.png */,
 			);
 			path = assets;
+			sourceTree = "<group>";
+		};
+		BE6A094A2504B7CA00BA90F7 /* fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				BE6A094B2504B7CA00BA90F7 /* Appfile */,
+				BE6A094C2504B7CA00BA90F7 /* Fastfile */,
+			);
+			path = fastlane;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
