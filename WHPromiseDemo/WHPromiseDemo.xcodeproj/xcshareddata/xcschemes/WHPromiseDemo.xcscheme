@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1100"
+   LastUpgradeVersion = "1170"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A6F50C6F23642C0D0043ECA1"
-               BuildableName = "WHPromise.framework"
-               BlueprintName = "WHPromise"
-               ReferencedContainer = "container:WHPromise.xcodeproj">
+               BlueprintIdentifier = "BEFDB1702504DED700739B11"
+               BuildableName = "WHPromiseDemo.app"
+               BlueprintName = "WHPromiseDemo"
+               ReferencedContainer = "container:WHPromiseDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A6F50C7823642C0D0043ECA1"
-               BuildableName = "WHPromiseTests.xctest"
+               BlueprintIdentifier = "WHPromiseTests"
+               BuildableName = "WHPromiseTests"
                BlueprintName = "WHPromiseTests"
-               ReferencedContainer = "container:WHPromise.xcodeproj">
+               ReferencedContainer = "container:..">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -50,6 +50,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "BEFDB1702504DED700739B11"
+            BuildableName = "WHPromiseDemo.app"
+            BlueprintName = "WHPromiseDemo"
+            ReferencedContainer = "container:WHPromiseDemo.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -57,15 +67,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A6F50C6F23642C0D0043ECA1"
-            BuildableName = "WHPromise.framework"
-            BlueprintName = "WHPromise"
-            ReferencedContainer = "container:WHPromise.xcodeproj">
+            BlueprintIdentifier = "BEFDB1702504DED700739B11"
+            BuildableName = "WHPromiseDemo.app"
+            BlueprintName = "WHPromiseDemo"
+            ReferencedContainer = "container:WHPromiseDemo.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

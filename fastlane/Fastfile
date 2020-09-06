@@ -18,6 +18,6 @@ default_platform(:ios)
 platform :ios do
   desc "Description of what the lane does"
   lane :test do
-    scan
+      scan(project: "WHPromiseDemo/WHPromiseDemo.xcodeproj")
   end
 end

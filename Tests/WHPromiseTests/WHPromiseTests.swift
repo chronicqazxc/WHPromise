@@ -1,24 +1,7 @@
-//
-//  WHPromiseTests.swift
-//  WHPromiseTests
-//
-//  Created by Hsiao, Wayne on 2019/10/26.
-//  Copyright © 2019 Hsiao, Wayne. All rights reserved.
-//
-
 import XCTest
 @testable import WHPromise
 
-class WHPromiseTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
+final class WHPromiseTests: XCTestCase {
     func testInitWithCallBack() {
         let ex = expectation(description: "")
         let testValue = "testInitWithCallBack"
