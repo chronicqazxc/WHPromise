@@ -12,7 +12,7 @@ before_install:
   # - carthage bootstrap --verbose --no-use-binaries --platform iOS --cache-builds
 install:
  - brew install swiftlint
- - bundle update
+ - bundle update --jobs 8
 after_install:
 
 os:
@@ -24,5 +24,5 @@ language:
 before_script:
 #  - carthage update --cache-builds --platform ios
 script:
-  - bundle exec fastlane scan
+  - bundle exec fastlane test
 #  - swiftlint
