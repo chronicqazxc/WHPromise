@@ -56,13 +56,15 @@ func testGetProduct() {
         }.catch { error in
             XCTAssertFalse(false, error.localizedDescription)
         }
-        
+
         wait(for: [ex], timeout: 10)
     }
 ```
 
+## Architecture diagram.
+![sequence](.assets/sequence.png)
 ## Sequence diagram.
-![sequence](./sequence.png)
+![sequence](.assets/usecase.png)
 
 ## Author:
 [Wayne Hsiao](mailto:chronicqazxc@gmail.com)

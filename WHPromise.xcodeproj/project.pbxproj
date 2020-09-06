@@ -37,9 +37,10 @@
 		A6F50C8A23644C080043ECA1 /* WHPromise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WHPromise.swift; sourceTree = "<group>"; };
 		A6F50C8C23644FC40043ECA1 /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 		A6F50C8E2364635D0043ECA1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A6F50C8F236465890043ECA1 /* sequence.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sequence.png; sourceTree = "<group>"; };
+		A6F50C8F236465890043ECA1 /* architecture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = architecture.png; sourceTree = "<group>"; };
 		A6F50C902364661E0043ECA1 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		A6F50C912364687E0043ECA1 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		BE6A094925047C9600BA90F7 /* usecase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usecase.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +69,7 @@
 				A6F50C8E2364635D0043ECA1 /* README.md */,
 				A6F50C912364687E0043ECA1 /* Gemfile */,
 				A6F50C902364661E0043ECA1 /* .travis.yml */,
-				A6F50C8F236465890043ECA1 /* sequence.png */,
+				BE6A094825047C7700BA90F7 /* assets */,
 				A6F50C7223642C0D0043ECA1 /* WHPromise */,
 				A6F50C7D23642C0D0043ECA1 /* WHPromiseTests */,
 				A6F50C7123642C0D0043ECA1 /* Products */,
@@ -103,6 +104,15 @@
 				A6F50C8023642C0D0043ECA1 /* Info.plist */,
 			);
 			path = WHPromiseTests;
+			sourceTree = "<group>";
+		};
+		BE6A094825047C7700BA90F7 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				A6F50C8F236465890043ECA1 /* architecture.png */,
+				BE6A094925047C9600BA90F7 /* usecase.png */,
+			);
+			path = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
