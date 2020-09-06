@@ -62,7 +62,7 @@ func testGetProduct() {
 ```
 
 ## Architecture diagram.
-![sequence](./assets/sequence.png)
+![sequence](./assets/architecture.png)
 ## Sequence diagram.
 ![sequence](./assets/usecase.png)
 
