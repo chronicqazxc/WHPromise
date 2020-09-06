@@ -6,6 +6,10 @@
 ## Light weight Promise (Future) framework in iOS.
 
 ## How to use.
+1. Client initiate a promise instance.
+2. Subscribe `then` and `reject` events.
+3. Receive event.
+
 ### Case 1. JSON Parser promise
 ```swift
     func jsonParser<Type: Codable>(data: Data) -> Promise<Type> {
