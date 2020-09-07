@@ -20,6 +20,6 @@ jobs:
     - name: check
       uses: actions/checkout@v2
     - name: Bundle install
-      run: bundle install
+      run: bundle install --jobs 8
     - name: Build and test
       run: bundle exec fastlane test
