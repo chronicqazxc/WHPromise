@@ -4,6 +4,7 @@
 [![Platform](https://img.shields.io/badge/iOS-SwiftPachageManager-blue)](https://github.com/chronicqazxc/WHPromise)
 [![Platform](https://img.shields.io/badge/iOS-CocoaPods-blue)](https://github.com/chronicqazxc/WHPromise)
 [![Platform](https://img.shields.io/badge/iOS-Carthage-blue)](https://github.com/chronicqazxc/WHPromise)
+[![Platform](https://img.shields.io/badge/Swift-5.2-orange)](https://github.com/chronicqazxc/WHPromise)
 
 ## Light weight Promise (Future) framework in iOS.
 
