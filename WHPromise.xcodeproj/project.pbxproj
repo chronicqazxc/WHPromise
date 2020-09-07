@@ -15,7 +15,21 @@
 		BEFDB1F425068E1F00739B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFDB1F325068E1F00739B11 /* Assets.xcassets */; };
 		BEFDB1F725068E1F00739B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFDB1F625068E1F00739B11 /* Preview Assets.xcassets */; };
 		BEFDB1FA25068E1F00739B11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEFDB1F825068E1F00739B11 /* LaunchScreen.storyboard */; };
+		BEFDB2082506955F00739B11 /* WHPromise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEFDB1D525068C0900739B11 /* WHPromise.framework */; };
+		BEFDB211250695C700739B11 /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFDB20E250695C700739B11 /* MockError.swift */; };
+		BEFDB212250695C700739B11 /* WHPromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFDB20F250695C700739B11 /* WHPromiseTests.swift */; };
+		BEFDB213250695C700739B11 /* GroceryProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFDB210250695C700739B11 /* GroceryProduct.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEFDB2092506955F00739B11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEFDB1CC25068C0900739B11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEFDB1D425068C0900739B11;
+			remoteInfo = WHPromise;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BEFDB1D525068C0900739B11 /* WHPromise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WHPromise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +44,11 @@
 		BEFDB1F625068E1F00739B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BEFDB1F925068E1F00739B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEFDB1FB25068E1F00739B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEFDB2032506955F00739B11 /* WHPromiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WHPromiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEFDB2072506955F00739B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEFDB20E250695C700739B11 /* MockError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockError.swift; path = Tests/WHPromiseTests/MockError.swift; sourceTree = SOURCE_ROOT; };
+		BEFDB20F250695C700739B11 /* WHPromiseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WHPromiseTests.swift; path = Tests/WHPromiseTests/WHPromiseTests.swift; sourceTree = SOURCE_ROOT; };
+		BEFDB210250695C700739B11 /* GroceryProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroceryProduct.swift; path = Tests/WHPromiseTests/GroceryProduct.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +66,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BEFDB2002506955F00739B11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFDB2082506955F00739B11 /* WHPromise.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,6 +82,7 @@
 			children = (
 				BEFDB1D725068C0900739B11 /* WHPromise */,
 				BEFDB1EC25068E1F00739B11 /* WHPromiseDemo */,
+				BEFDB2042506955F00739B11 /* WHPromiseTests */,
 				BEFDB1D625068C0900739B11 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +92,7 @@
 			children = (
 				BEFDB1D525068C0900739B11 /* WHPromise.framework */,
 				BEFDB1EB25068E1F00739B11 /* WHPromiseDemo.app */,
+				BEFDB2032506955F00739B11 /* WHPromiseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +135,17 @@
 				BEFDB1F625068E1F00739B11 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BEFDB2042506955F00739B11 /* WHPromiseTests */ = {
+			isa = PBXGroup;
+			children = (
+				BEFDB210250695C700739B11 /* GroceryProduct.swift */,
+				BEFDB20E250695C700739B11 /* MockError.swift */,
+				BEFDB20F250695C700739B11 /* WHPromiseTests.swift */,
+				BEFDB2072506955F00739B11 /* Info.plist */,
+			);
+			path = WHPromiseTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +197,24 @@
 			productReference = BEFDB1EB25068E1F00739B11 /* WHPromiseDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BEFDB2022506955F00739B11 /* WHPromiseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEFDB20D2506955F00739B11 /* Build configuration list for PBXNativeTarget "WHPromiseTests" */;
+			buildPhases = (
+				BEFDB1FF2506955F00739B11 /* Sources */,
+				BEFDB2002506955F00739B11 /* Frameworks */,
+				BEFDB2012506955F00739B11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEFDB20A2506955F00739B11 /* PBXTargetDependency */,
+			);
+			name = WHPromiseTests;
+			productName = WHPromiseTests;
+			productReference = BEFDB2032506955F00739B11 /* WHPromiseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -172,6 +230,10 @@
 					};
 					BEFDB1EA25068E1F00739B11 = {
 						CreatedOnToolsVersion = 11.7;
+					};
+					BEFDB2022506955F00739B11 = {
+						CreatedOnToolsVersion = 11.7;
+						LastSwiftMigration = 1170;
 					};
 				};
 			};
@@ -190,6 +252,7 @@
 			targets = (
 				BEFDB1D425068C0900739B11 /* WHPromise */,
 				BEFDB1EA25068E1F00739B11 /* WHPromiseDemo */,
+				BEFDB2022506955F00739B11 /* WHPromiseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -209,6 +272,13 @@
 				BEFDB1FA25068E1F00739B11 /* LaunchScreen.storyboard in Resources */,
 				BEFDB1F725068E1F00739B11 /* Preview Assets.xcassets in Resources */,
 				BEFDB1F425068E1F00739B11 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEFDB2012506955F00739B11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +303,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BEFDB1FF2506955F00739B11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFDB212250695C700739B11 /* WHPromiseTests.swift in Sources */,
+				BEFDB213250695C700739B11 /* GroceryProduct.swift in Sources */,
+				BEFDB211250695C700739B11 /* MockError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BEFDB20A2506955F00739B11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEFDB1D425068C0900739B11 /* WHPromise */;
+			targetProxy = BEFDB2092506955F00739B11 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BEFDB1F825068E1F00739B11 /* LaunchScreen.storyboard */ = {
@@ -426,6 +514,7 @@
 				DEVELOPMENT_TEAM = 94MBHXKUB6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WHPromiseDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,11 +535,53 @@
 				DEVELOPMENT_TEAM = 94MBHXKUB6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WHPromiseDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.WayneHsiao.WHPromiseDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BEFDB20B2506955F00739B11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MBHXKUB6;
+				INFOPLIST_FILE = WHPromiseTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.WayneHsiao.WHPromiseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BEFDB20C2506955F00739B11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MBHXKUB6;
+				INFOPLIST_FILE = WHPromiseTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.WayneHsiao.WHPromiseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -483,6 +614,15 @@
 			buildConfigurations = (
 				BEFDB1FD25068E1F00739B11 /* Debug */,
 				BEFDB1FE25068E1F00739B11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEFDB20D2506955F00739B11 /* Build configuration list for PBXNativeTarget "WHPromiseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEFDB20B2506955F00739B11 /* Debug */,
+				BEFDB20C2506955F00739B11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
