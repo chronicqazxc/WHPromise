@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BEFDB1702504DED700739B11"
-               BuildableName = "WHPromiseDemo.app"
-               BlueprintName = "WHPromiseDemo"
-               ReferencedContainer = "container:WHPromiseDemo.xcodeproj">
+               BlueprintIdentifier = "BEFDB1D425068C0900739B11"
+               BuildableName = "WHPromise.framework"
+               BlueprintName = "WHPromise"
+               ReferencedContainer = "container:WHPromise.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,16 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "WHPromiseTests"
-               BuildableName = "WHPromiseTests"
-               BlueprintName = "WHPromiseTests"
-               ReferencedContainer = "container:..">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -50,16 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BEFDB1702504DED700739B11"
-            BuildableName = "WHPromiseDemo.app"
-            BlueprintName = "WHPromiseDemo"
-            ReferencedContainer = "container:WHPromiseDemo.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -67,16 +47,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BEFDB1702504DED700739B11"
-            BuildableName = "WHPromiseDemo.app"
-            BlueprintName = "WHPromiseDemo"
-            ReferencedContainer = "container:WHPromiseDemo.xcodeproj">
+            BlueprintIdentifier = "BEFDB1D425068C0900739B11"
+            BuildableName = "WHPromise.framework"
+            BlueprintName = "WHPromise"
+            ReferencedContainer = "container:WHPromise.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

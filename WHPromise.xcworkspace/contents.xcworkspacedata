@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:WHPromiseDemo.xcodeproj">
+      location = "group:WHPromise.xcodeproj">
    </FileRef>
 </Workspace>
